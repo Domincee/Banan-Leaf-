@@ -103,7 +103,7 @@ The dataset consists of **2,000+ images**, resized to **128×128**, including:
 * **Non-banana images** (negative samples)
 
 > ⚠️ Raw and training datasets are not included in this repository due to file size limits.
-> You can download them from: [Google Drive Link Here]()
+> You can download them from: [[Google Drive Link Here]()](https://drive.google.com/drive/folders/1mng06d0Y_U4hC7WM5hnbBNbuC5ohulcq?usp=sharing)
 
 ---
 
