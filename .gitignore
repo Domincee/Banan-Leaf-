@@ -1,0 +1,17 @@
+# Ignore virtual environment
+.venv/
+
+# Ignore dataset and uploaded files
+dataset/raw_data
+dataset/train_data
+
+uploads/
+
+# Ignore cache, logs, and system files
+__pycache__/
+*.log
+*.tmp
+*.DS_Store
+
+# Ignore notebook checkpoints
+.ipynb_checkpoints/
