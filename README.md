@@ -21,25 +21,32 @@ This project extracts texture and color-based features (using **GLCM**, **LBP**,
 ## 📂 Project Structure
 
 ```
-Banana-Leaf-Detector/
+project/
 │
-├── app.py                        # Flask app (main entry)
-├── extract_features.py            # Feature extraction functions
-├── knn_trainer.py                 # Model training script
-├── scale.py                       # Feature scaling and preprocessing
+├── app.py                  # Flask app (main entry)
+├── extract_features.py     # Feature extraction functions
+├── generate_aug.py         # Data augmentation script
+├── knn_trainer.py         # Model training script
+├── scale.py               # Feature scaling and preprocessing
+├── visualization.ipynb    # Data visualization and analysis
 │
-├── features_train_banana_aug_balanced.csv   # Extracted feature dataset
-├── knn_features_model.pkl         # Trained KNN model
-├── label_encoder.pkl              # Encoded class labels
-├── scaler.pkl                     # Fitted scaler
+├── dataset/               # Dataset organization
+│   ├── raw_data/         # Original dataset
+│   │   ├── Diseased_leaf/
+│   │   ├── Healthy_leaf/
+│   │   └── Non_leaf/
+│   ├── train_data/       # Training dataset
+│   └── test_data/        # Testing dataset
 │
-├── templates/                     # HTML templates for Flask
-├── uploads/                       # Temporary uploaded images
-├── dataset/                       # Folder for raw and training data (ignored)
+├── static/               # Static files for web interface
+│   └── styles.css        # CSS styling
 │
-├── visualization.ipynb            # Jupyter notebook for analysis and plots
-├── requirements.txt               # Dependencies
-└── README.md                      # Project documentation
+├── templates/            # HTML templates
+│   └── index.html       # Main web interface
+│
+├── uploads/             # Temporary storage for uploaded images
+├── requirements.txt     # Python dependencies
+└── README.md           # Project documentation
 ```
 
 ---
@@ -56,8 +63,13 @@ Banana-Leaf-Detector/
 2. **Create a virtual environment (recommended)**
 
    ```bash
-   python -m venv .venv
-   .venv\Scripts\activate
+   # Windows
+   python -m venv venv
+   .\venv\Scripts\Activate.ps1
+   
+   # Linux/MacOS
+   python3 -m venv venv
+   source venv/bin/activate
    ```
 
 3. **Install dependencies**
@@ -84,13 +96,20 @@ Banana-Leaf-Detector/
 
 | Metric  | Training Accuracy | Test Accuracy |
 | ------- | ----------------- | ------------- |
-| **KNN** | 0.9991            | 0.9127        |
+| **KNN** | 0.9991            | 0.90423       |
 
 **Classification Report (Test Set)**
 
-* Diseased Leaf → Precision: 0.82 | Recall: 0.92 | F1: 0.87
-* Healthy Leaf → Precision: 0.91 | Recall: 0.95 | F1: 0.93
-* None-leaf → Precision: 0.98 | Recall: 0.89 | F1: 0.93
+
+                precision    recall  f1-score   support
+
+  Healthy Leaf       0.91      0.94      0.92       149
+     None-leaf       0.93      0.87      0.90       150
+Unhealthy leaf       0.88      0.90      0.89       150
+
+      accuracy                           0.90       449
+     macro avg       0.90      0.90      0.90       449
+  weighted avg       0.90      0.90      0.90       449
 
 ---
 
@@ -98,9 +117,9 @@ Banana-Leaf-Detector/
 
 The dataset consists of **2,000+ images**, resized to **128×128**, including:
 
-* **Healthy banana leaves**
-* **Diseased banana leaves**
-* **Non-banana images** (negative samples)
+* **Healthy banana leaves** (Augmented images)
+* **Diseased banana leaves** (Actual images)
+* **Non-banana images** (negative samples,self-collected)
 
 > ⚠️ Raw and training datasets are not included in this repository due to file size limits.
 > You can download them from: [[Google Drive Link Here]()](https://drive.google.com/drive/folders/1mng06d0Y_U4hC7WM5hnbBNbuC5ohulcq?usp=sharing)
