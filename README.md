@@ -1,6 +1,6 @@
 # 🍌 Banana Leaf Disease Detector
 
-A machine learning web application built with **Python, OpenCV, scikit-learn, and Flask** to detect whether a banana leaf is **Healthy**, **Diseased**, or **Not a Leaf** using image processing and KNN classification.
+A machine learning web application built with **Python, OpenCV, scikit-learn, and Flask** to detect whether a banana leaf is **Healthy**, **Unhealthy**, or **Not a Leaf** using image processing and KNN classification.
 
 ---
 
