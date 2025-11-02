@@ -140,3 +140,14 @@ The dataset consists of **2,000+ images**, resized to **128×128**, including:
 
 
 
+
+## 🪪 License
+
+© 2025 Domince Aseberos. All rights reserved.
+
+This project is released under the **MIT License**.
+
+You are free to use, copy, modify, and distribute this software for educational or research purposes, provided that proper credit is given to the author.
+
+> ⚠️ Note: The dataset and sample images are for demonstration and research purposes only.  
+> They may contain content collected from public sources and are **not included in this repository** to comply with data-sharing and copyright policies.
