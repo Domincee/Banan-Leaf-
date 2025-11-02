@@ -1,4 +1,5 @@
 flask
+Flask-Cors
 opencv-python-headless==4.12.0.88
 numpy
 pandas
